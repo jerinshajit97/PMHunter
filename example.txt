@@ -1,0 +1,5 @@
+satge
+dev
+test
+token
+example.com
