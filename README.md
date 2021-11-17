@@ -1,7 +1,8 @@
 # PMHunter
 A tool written in python to automate searching in postman for public data
 
-```usage: pmhunter.py -h for help
+```
+usage: pmhunter.py -h for help
 
         ░░░░░░░▄█▄▄▄█▄
 ▄▀░░░░▄▌─▄─▄─▐▄░░░░▀▄
@@ -11,4 +12,8 @@ A tool written in python to automate searching in postman for public data
 
 optional arguments:
   -h, --help  show this help message and exit
-  -f F        file name 
+  -f F        file name
+  ```
+ ### Demo
+ [![asciicast](https://asciinema.org/a/QbewusD6AtHdQcl2BpbM3byQF.svg)](https://asciinema.org/a/QbewusD6AtHdQcl2BpbM3byQF)
+     
