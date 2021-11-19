@@ -3,3 +3,4 @@ dev
 test
 token
 example.com
+www.example.com

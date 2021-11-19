@@ -62,6 +62,13 @@ def findCount(val): #funtion to find total count
     return result
 
 
+def SwaggerCount(val):
+    surl='https://app.swaggerhub.com/apiproxy/specs?sort=BEST_MATCH&order=DESC&query='+val+'&limit=0'
+    qh = {"Ser-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0"}
+    sr = requests.get(url = surl, headers = qh)
+    count=json.loads(sr.text)["totalCount"]
+    return count
+
 #print logo
 print(r"""░░░░░░░▄█▄▄▄█▄
 ▄▀░░░░▄▌─▄─▄─▐▄░░░░▀▄
@@ -84,13 +91,16 @@ for x in f:
         fin = tldextract.extract(x).domain 
         fin1 = tldextract.extract(x).domain+'.'+tldextract.extract(x).suffix
 
-        print("%s :::: %s\n"%( fin, display(findCount(fin) ) ) )
-        print("%s :::: %s\n"%(fin1, display(findCount(fin1) ) ) )
+        print("%s ::POSTMAN:: %s"%( fin, display(findCount(fin) ) ) )
+        print("%s ::SWAGGER:: %s\n"%(fin, SwaggerCount(fin)) )
+        print("%s ::POSTMAN:: %s"%(fin1, display(findCount(fin1) ) ) )
+        print("%s ::SWAGGER:: %s\n"%(fin1, SwaggerCount(fin1)) )
         pre=tldextract.extract(x).domain
-        if fin1 != x: # for testing first domain
-            print("%s :::: %s\n"%(x, display(findCount(x) ) ) ) 
+       # if fin1 != x: # for testing first domain
+       #     print("%s :::: %s\n"%(x, display(findCount(x) ) ) ) 
     else:
-        print("%s :::: %s\n"%(x, display(findCount(x) ) ) )
-
+        if tldextract.extract(x).subdomain != 'www':
+            print("%s ::POSTMAN:: %s"%(x, display(findCount(x) ) ) )
+            print("%s ::SWAGGER:: %s\n"%(x, SwaggerCount(x)) )
 
 
