@@ -91,16 +91,17 @@ for x in f:
         fin = tldextract.extract(x).domain 
         fin1 = tldextract.extract(x).domain+'.'+tldextract.extract(x).suffix
 
-        print("%s ::POSTMAN:: %s"%( fin, display(findCount(fin) ) ) )
-        print("%s ::SWAGGER:: %s\n"%(fin, SwaggerCount(fin)) )
-        print("%s ::POSTMAN:: %s"%(fin1, display(findCount(fin1) ) ) )
-        print("%s ::SWAGGER:: %s\n"%(fin1, SwaggerCount(fin1)) )
+        print("%s ::POSTMAN:: %s [ https://www.postman.com/search?q=%s&scope=all&type=all ]"%( fin, display(findCount(fin)), fin ))
+        print("%s ::SWAGGER:: %s [ https://app.swaggerhub.com/search?query=%s&sort=BEST_MATCH&order=DESC ]"%(fin, SwaggerCount(fin), fin))
+       
+        print("%s ::POSTMAN:: %s [ https://www.postman.com/search?q=%s&scope=all&type=all ]"%(fin1, display(findCount(fin1)), fin1 ))
+        print("%s ::SWAGGER:: %s [ https://app.swaggerhub.com/search?query=%s&sort=BEST_MATCH&order=DESC ]"%(fin1, SwaggerCount(fin1), fin1 ))
         pre=tldextract.extract(x).domain
        # if fin1 != x: # for testing first domain
        #     print("%s :::: %s\n"%(x, display(findCount(x) ) ) ) 
     else:
         if tldextract.extract(x).subdomain != 'www':
-            print("%s ::POSTMAN:: %s"%(x, display(findCount(x) ) ) )
-            print("%s ::SWAGGER:: %s\n"%(x, SwaggerCount(x)) )
+            print("%s ::POSTMAN:: %s [ https://www.postman.com/search?q=%s&scope=all&type=all ]"%(x, display(findCount(x)), x ))
+            print("%s ::SWAGGER:: %s [ https://app.swaggerhub.com/search?query=%s&sort=BEST_MATCH&order=DESC ]\n"%(x, SwaggerCount(x), x ))
 
 
