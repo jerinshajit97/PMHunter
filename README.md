@@ -14,6 +14,3 @@ optional arguments:
   -h, --help  show this help message and exit
   -f F        file name
   ```
- ### Demo
- [![asciicast](https://asciinema.org/a/QbewusD6AtHdQcl2BpbM3byQF.svg)](https://asciinema.org/a/QbewusD6AtHdQcl2BpbM3byQF)
-     
