@@ -28,7 +28,7 @@ args = parser.parse_args()
 
 def findCount(val): #funtion to find total count
     wurl='https://bifrost-web-https-v4.gw.postman.com/ws/proxy'
-    qh = {"Ser-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0","Content-Type":"application/json"}
+    qh = {"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0","Content-Type":"application/json"}
 
     #workspace  
     dw = {"service":"search","method":"POST","path":"/search","body":{"queryIndex":"collaboration.workspace","queryText":val,"from":0,"size":1}}
@@ -64,7 +64,7 @@ def findCount(val): #funtion to find total count
 
 def SwaggerCount(val):
     surl='https://app.swaggerhub.com/apiproxy/specs?sort=BEST_MATCH&order=DESC&query='+val+'&limit=0'
-    qh = {"Ser-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0"}
+    qh = {"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0"}
     sr = requests.get(url = surl, headers = qh)
     count=json.loads(sr.text)["totalCount"]
     return count
